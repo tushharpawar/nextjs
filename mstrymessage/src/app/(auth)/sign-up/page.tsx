@@ -71,7 +71,7 @@ const page = () => {
 
   const onSubmit = async (data: z.infer<typeof signUpSchema>) => {
     setIsSubmitting(true);
-    console.log("data here:::::", data);
+    // console.log("data here:::::", data);
 
     try {
       const response = await axios.post<ApiResponse>("/api/sign-up", data);
@@ -166,10 +166,6 @@ const page = () => {
                       type="password"
                       placeholder="password"
                       {...field}
-                      onChange={(e) => {
-                        field.onChange(e);
-                        setUsername(e.target.value);
-                      }}
                     />
                   </FormControl>
                   <FormMessage />
