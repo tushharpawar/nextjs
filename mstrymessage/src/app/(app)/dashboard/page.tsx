@@ -93,7 +93,7 @@ const page = () => {
     fetchMessages()
     fetchAcceptMessage()
 
-  },[session,setValue,fetchAcceptMessage,fetchMessages])
+  },[session,setValue,toast,fetchAcceptMessage,fetchMessages])
 
   //handle switch change
 
@@ -110,13 +110,13 @@ const page = () => {
       })
     } catch (error) {
       const axiosError = error as AxiosError<ApiResponse>;
-        toast({
-          title: 'Error',
-          description:
-            axiosError.response?.data.message ??
-            'Failed to fetch message settings',
-          variant: 'destructive',
-        });
+      toast({
+        title: 'Error',
+        description:
+          axiosError.response?.data.message ??
+          'Failed to fetch message settings',
+        variant: 'destructive',
+      });
     }
   }
 
